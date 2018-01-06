@@ -1,17 +1,24 @@
 # Kendi Proxy Sitenizi Oluşturun
 Yazılımcıların bot yazmalarına yardımcı olacak bir şekilde ayarlanmışdır. Gerek bot için gerekse farklı ip den başka web sitesine giriş kontrolü sağlamak amaçlı yazılmıştır.
 
-#Hızlı Kurulum için
+# Hızlı Kurulum için
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
 
-1. Butona Tıklayın ve heroku.com'dan üye olun veya üye girişi yapın.
-2. Eklentinin kurulum ekranında size özel verilecek olan domainin ismini seçin ÖRN: bildirim.heroku.com
-3. Size verilen domain ile artık anlık bildirim sistemini çalıştırabilirsiniz
+# Kurulum
+1- Yukarıdaki Heroku butonuna basınız
+2- Heroku sayfasındaki yönlendirmeleri takip ederek kurulumu yapınız
+3- Oluşturduğunu Heroku domainiz ile artık sistemi kullanabilirsiniz
 
-# Botlar için kullanımı Örnek
+# Kullanım
+Sorgulayacağınız linkte GET parametreleri var ise oluşturduğunuz heroku domainine sorguyu POST ile yollayın. Aksi taktirde sorgu yapacağınız linke ait GET parametreleri heroku domainine ait olarak varsayılır ve işlem görmez. 
 
-```javascript
-http://hayatikodlaproxy.herokuapp.com/?site=www.teknodos.com
-```
+Oluşturduğunuz heroku domainine "domain" parametresini kullanarak post atın.
 
-Yukarıdaki kullanım size direk html çıktısını verecektir. Html çıktısını parse edip botunuz için kullanabilirsiniz.
+![alt text](https://image.prntscr.com/image/U1raJnLLRquWfyNIuhFXHw.png)
+
+# Hatalar
+Çıktılardaki hata kodlarının açıklamaları.
+503 - POST veya GET methodu ile gelen "domain" parametresi bulunamadı.
+502 - "domain" parametresi ile gelen url veya link geçerli değil. 
+501 - Siteye girerken 500 veya 404 gibi siteye ulaştıramayan hatalar tespit edildi.
+500 - Siteye mevcut değil veya hiç bağlanamıyor.
